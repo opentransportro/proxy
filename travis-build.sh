@@ -22,12 +22,18 @@ if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
     docker tag ${DOCKER_IMAGE} ${PROD_IMAGE}
     docker push ${PROD_IMAGE}
   else
-    echo "processing master build $TRAVIS_COMMIT"
     ./test.sh
     docker build  --tag=$DOCKER_IMAGE -f Dockerfile .
     docker push ${DOCKER_IMAGE}
-    docker tag ${DOCKER_IMAGE} ${LATEST_IMAGE}
-    docker push ${LATEST_IMAGE}
+    if [ "$TRAVIS_BRANCH" = "master" ]; then
+      echo "processing master build $TRAVIS_COMMIT"
+      docker tag ${DOCKER_IMAGE} ${LATEST_IMAGE}
+      docker push ${LATEST_IMAGE}
+    else
+      echo "processing $TRAVIS_BRANCH build $TRAVIS_COMMIT"
+      docker tag ${DOCKER_IMAGE} $ORG/digitransit-proxy:$TRAVIS_BRANCH
+      docker push $ORG/digitransit-proxy:$TRAVIS_BRANCH
+    fi
   fi
 else
   echo "processing pr $TRAVIS_PULL_REQUEST"
