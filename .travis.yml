@@ -13,4 +13,4 @@ node_js: '10'
 
 install: true
 
-script: ./travis-build.sh
+script: yarn install && ./travis-build.sh
