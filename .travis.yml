@@ -7,9 +7,10 @@ branches:
 
 services: docker
 
-install:
- - npm install
-
 language: node_js
 
-script: ./travis-build.sh
+node_js: '10'
+
+install: true
+
+script: yarn install && ./travis-build.sh
