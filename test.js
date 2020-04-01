@@ -91,17 +91,17 @@ function testResponseHeader(host, path, header, headerValue) {
   });
 }
 
-describe('api.digitransit.fi', function() {
+describe('api.opentransport.ro', function() {
 
   it('https should not redirect', function(done) {
-    httpsGet('api.digitransit.fi','/geocoding/v1/').end((err,res)=>{
+    httpsGet('api.opentransport.ro','/geocoding/v1/').end((err,res)=>{
       expect(err).to.be.null;
       done();
     });
   });
 
   it('/ should contain static content', function(done) {
-    get('api.digitransit.fi','/').end((err,res)=>{
+    get('api.opentransport.ro','/').end((err,res)=>{
       expect(err).to.be.null;
       expect(res.statusCode).to.be.equal(200);
       expect(res.text).to.contain('Digitransit APIs');
@@ -109,39 +109,39 @@ describe('api.digitransit.fi', function() {
     });
   });
 
-  testProxying('api.digitransit.fi','/geocoding/v1/','pelias-api:8080');
-  //testCaching('api.digitransit.fi','/geocoding/v1/foo', true);
-  testProxying('api.digitransit.fi','/graphiql/hsl','graphiql:8080');
-  testProxying('api.digitransit.fi','/realtime/trip-updates/v1/FOLI','siri2gtfsrt:8080');
-  //testCaching('api.digitransit.fi','/realtime/trip-updates/v1/foo', false)
-  testProxying('api.digitransit.fi','/realtime/vehicle-positions/v1/','navigator-server:8080');
- // testCaching('api.digitransit.fi','/realtime/vehicle-positions/v1/foo',false);
-  testProxying('api.digitransit.fi','/realtime/raildigitraffic2gtfsrt/v1/','raildigitraffic2gtfsrt:8080');
- //testCaching('api.digitransit.fi','/realtime/raildigitraffic2gtfsrt/v1/foo',true);
-  testProxying('api.digitransit.fi','/map/v1/','hsl-map-server:8080');
-  testProxying('api.digitransit.fi','/routing/v1/routers/finland','opentripplanner-finland:8080');
-  testProxying('api.digitransit.fi','/routing/v1/routers/hsl','opentripplanner-hsl:8080');
-  testProxying('api.digitransit.fi','/routing/v1/routers/waltti','opentripplanner-waltti:8080');
-  testProxying('dev-api.digitransit.fi','/routing/v1/routers/next-finland','opentripplanner-finland:8080');
-  testProxying('dev-api.digitransit.fi','/routing/v1/routers/next-hsl','opentripplanner-hsl:8080');
-  testProxying('dev-api.digitransit.fi','/routing/v1/routers/next-waltti','opentripplanner-waltti:8080');
-  testProxying('api.digitransit.fi','/routing-data/v2/hsl/router-hsl.zip','opentripplanner-data-con-hsl:8080');
-  testResponseHeader('api.digitransit.fi','/routing-data/v2/hsl/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('api.digitransit.fi','/routing-data/v2/waltti/router-waltti.zip','opentripplanner-data-con-waltti:8080');
-  testResponseHeader('api.digitransit.fi','/routing-data/v2/waltti/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('api.digitransit.fi','/routing-data/v2/finland/router-finland.zip','opentripplanner-data-con-finland:8080');
-  testResponseHeader('api.digitransit.fi','/routing-data/v2/finland/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v2/next-hsl/router-hsl.zip','opentripplanner-data-con-hsl:8080');
-  testResponseHeader('dev-api.digitransit.fi','/routing-data/v2/next-hsl/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v2/next-waltti/router-waltti.zip','opentripplanner-data-con-waltti:8080');
-  testResponseHeader('dev-api.digitransit.fi','/routing-data/v2/next-waltti/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('dev-api.digitransit.fi','/routing-data/v2/next-finland/router-finland.zip','opentripplanner-data-con-finland:8080');
-  testResponseHeader('dev-api.digitransit.fi','/routing-data/v2/next-finland/router-config.json', 'access-control-allow-origin', '*');
-  testProxying('api.digitransit.fi','/ui/v1/finland/sw.js','digitransit-ui-default:8080');
-  testProxying('api.digitransit.fi','/ui/v1/waltti/sw.js','digitransit-ui-waltti:8080');
-  testProxying('api.digitransit.fi','/ui/v1/hsl/sw.js','digitransit-ui-hsl:8080');
-  testProxying('api.digitransit.fi','/ui/v1/hsl-next/sw.js','digitransit-ui-hsl-next:8080');
-  testProxying('api.digitransit.fi','/timetables/v1/hsl/stops/1010105.pdf','hsl-timetable-container:8080');
+  testProxying('api.opentransport.ro','/geocoding/v1/','pelias-api:8080');
+  //testCaching('api.opentransport.ro','/geocoding/v1/foo', true);
+  testProxying('api.opentransport.ro','/graphiql/hsl','graphiql:8080');
+  testProxying('api.opentransport.ro','/realtime/trip-updates/v1/FOLI','siri2gtfsrt:8080');
+  //testCaching('api.opentransport.ro','/realtime/trip-updates/v1/foo', false)
+  testProxying('api.opentransport.ro','/realtime/vehicle-positions/v1/','navigator-server:8080');
+ // testCaching('api.opentransport.ro','/realtime/vehicle-positions/v1/foo',false);
+  testProxying('api.opentransport.ro','/realtime/raildigitraffic2gtfsrt/v1/','raildigitraffic2gtfsrt:8080');
+ //testCaching('api.opentransport.ro','/realtime/raildigitraffic2gtfsrt/v1/foo',true);
+  testProxying('api.opentransport.ro','/map/v1/','hsl-map-server:8080');
+  testProxying('api.opentransport.ro','/routing/v1/routers/finland','opentripplanner-finland:8080');
+  testProxying('api.opentransport.ro','/routing/v1/routers/hsl','opentripplanner-hsl:8080');
+  testProxying('api.opentransport.ro','/routing/v1/routers/waltti','opentripplanner-waltti:8080');
+  testProxying('dev-api.opentransport.ro','/routing/v1/routers/next-finland','opentripplanner-finland:8080');
+  testProxying('dev-api.opentransport.ro','/routing/v1/routers/next-hsl','opentripplanner-hsl:8080');
+  testProxying('dev-api.opentransport.ro','/routing/v1/routers/next-waltti','opentripplanner-waltti:8080');
+  testProxying('api.opentransport.ro','/routing-data/v2/hsl/router-hsl.zip','opentripplanner-data-con-hsl:8080');
+  testResponseHeader('api.opentransport.ro','/routing-data/v2/hsl/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('api.opentransport.ro','/routing-data/v2/waltti/router-waltti.zip','opentripplanner-data-con-waltti:8080');
+  testResponseHeader('api.opentransport.ro','/routing-data/v2/waltti/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('api.opentransport.ro','/routing-data/v2/finland/router-finland.zip','opentripplanner-data-con-finland:8080');
+  testResponseHeader('api.opentransport.ro','/routing-data/v2/finland/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('dev-api.opentransport.ro','/routing-data/v2/next-hsl/router-hsl.zip','opentripplanner-data-con-hsl:8080');
+  testResponseHeader('dev-api.opentransport.ro','/routing-data/v2/next-hsl/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('dev-api.opentransport.ro','/routing-data/v2/next-waltti/router-waltti.zip','opentripplanner-data-con-waltti:8080');
+  testResponseHeader('dev-api.opentransport.ro','/routing-data/v2/next-waltti/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('dev-api.opentransport.ro','/routing-data/v2/next-finland/router-finland.zip','opentripplanner-data-con-finland:8080');
+  testResponseHeader('dev-api.opentransport.ro','/routing-data/v2/next-finland/router-config.json', 'access-control-allow-origin', '*');
+  testProxying('api.opentransport.ro','/ui/v1/finland/sw.js','digitransit-ui-default:8080');
+  testProxying('api.opentransport.ro','/ui/v1/waltti/sw.js','digitransit-ui-waltti:8080');
+  testProxying('api.opentransport.ro','/ui/v1/hsl/sw.js','digitransit-ui-hsl:8080');
+  testProxying('api.opentransport.ro','/ui/v1/hsl-next/sw.js','digitransit-ui-hsl-next:8080');
+  testProxying('api.opentransport.ro','/timetables/v1/hsl/stops/1010105.pdf','hsl-timetable-container:8080');
 });
 
 describe('hsl ui', function() {
@@ -154,7 +154,7 @@ describe('hsl ui', function() {
   testRedirect('dev.reittiopas.fi','/kissa','https://dev.reittiopas.fi/kissa');
 
   it('https should not redirect', function(done) {
-    httpsGet('beta.digitransit.fi','/kissa').end((err,res)=>{
+    httpsGet('beta.opentransport.ro','/kissa').end((err,res)=>{
       expect(err).to.be.null;
       done();
     });
@@ -170,10 +170,10 @@ describe('hsl ui', function() {
   testRedirect('reittiopas.hsl.fi','/uudetvyöhykkeet','https://reittiopas.hsl.fi', true);
 
   //next-dev site
-  testRedirect('www.next-dev.digitransit.fi','/kissa','http://next-dev.digitransit.fi/kissa');
-  testRedirect('next-dev.digitransit.fi','/kissa','https://next-dev.digitransit.fi/kissa');
-  testProxying('next-dev.digitransit.fi','/','digitransit-ui-hsl-next:8080', true);
-  testCaching('next-dev.digitransit.fi','/sw.js', true);
+  testRedirect('www.next-dev.opentransport.ro','/kissa','http://next-dev.opentransport.ro/kissa');
+  testRedirect('next-dev.opentransport.ro','/kissa','https://next-dev.opentransport.ro/kissa');
+  testProxying('next-dev.opentransport.ro','/','digitransit-ui-hsl-next:8080', true);
+  testCaching('next-dev.opentransport.ro','/sw.js', true);
 
   testRedirect('vyohykereittiopas.hsl.fi','/kissa','https://reittiopas.hsl.fi/kissa');
 });
@@ -199,10 +199,10 @@ describe('waltti ui', function() {
                   'lappeenranta', 'mikkeli', 'oulu', 'turku', 'tampere', 'kouvola', 'rovaniemi', 'salo'];
 
   cities.forEach(function(city) {
-    testRedirect('dev-'+city+'.digitransit.fi','/kissa','https://dev-'+city+'.digitransit.fi/kissa');
-    testProxying('dev-'+city+'.digitransit.fi','/','digitransit-ui-waltti:8080', true);
-    testRedirect(city+'.digitransit.fi','/kissa','https://'+city+'.digitransit.fi/kissa');
-    testProxying(city+'.digitransit.fi','/','digitransit-ui-waltti:8080', true);
+    testRedirect('dev-'+city+'.opentransport.ro','/kissa','https://dev-'+city+'.opentransport.ro/kissa');
+    testProxying('dev-'+city+'.opentransport.ro','/','digitransit-ui-waltti:8080', true);
+    testRedirect(city+'.opentransport.ro','/kissa','https://'+city+'.opentransport.ro/kissa');
+    testProxying(city+'.opentransport.ro','/','digitransit-ui-waltti:8080', true);
   });
 
   testRedirect('reittiopas.foli.fi','/kissa','https://reittiopas.foli.fi/kissa');
@@ -225,7 +225,7 @@ describe('waltti ui', function() {
   testProxying('reittiopas.salo.fi','/','digitransit-ui-waltti:8080', true);
 
   it('https should not redirect', function(done) {
-    httpsGet('turku.digitransit.fi','/kissa').end((err,res)=>{
+    httpsGet('turku.opentransport.ro','/kissa').end((err,res)=>{
       expect(err).to.be.null;
       done();
     });
@@ -233,28 +233,28 @@ describe('waltti ui', function() {
 });
 
 describe('sentry-analytics', function() {
-  testProxying('sentry-analytics.digitransit.fi','/','digitransit-sentry-analytics:8080', true);
-  testRedirect('sentry-analytics.digitransit.fi','/kissa','https://sentry-analytics.digitransit.fi/kissa');
+  testProxying('sentry-analytics.opentransport.ro','/','digitransit-sentry-analytics:8080', true);
+  testRedirect('sentry-analytics.opentransport.ro','/kissa','https://sentry-analytics.opentransport.ro/kissa');
 });
 
 describe('yleisviestipalvelu', function() {
   testCaching('yleisviesti.hsl.fi','/', true);
   testProxying('yleisviesti.hsl.fi','/','yleisviestipalvelu:8080', true);
   testRedirect('yleisviesti.hsl.fi','/kissa','https://yleisviesti.hsl.fi/kissa');
-  testCaching('dev-yleisviesti.digitransit.fi','/', true);
-  testProxying('dev-yleisviesti.digitransit.fi','/','yleisviestipalvelu:8080', true);
-  testRedirect('dev-yleisviesti.digitransit.fi','/kissa','https://dev-yleisviesti.digitransit.fi/kissa');
+  testCaching('dev-yleisviesti.opentransport.ro','/', true);
+  testProxying('dev-yleisviesti.opentransport.ro','/','yleisviestipalvelu:8080', true);
+  testRedirect('dev-yleisviesti.opentransport.ro','/kissa','https://dev-yleisviesti.opentransport.ro/kissa');
 });
 
 describe('digitransit', function() {
-  testProxying('digitransit.fi','/','digitransit-site:8080', true);
+  testProxying('opentransport.ro','/','digitransit-site:8080', true);
 });
 
 describe('ext-proxy', function() {
   this.timeout(5000);
-  testCaching('api.digitransit.fi','/out/helsinki-fi.smoove.pro/api-public/stations',false);
-  testCaching('api.digitransit.fi','/out/data.foli.fi/citybike/smoove',false);
-  testCaching('api.digitransit.fi','/out/p.hsl.fi/api/v1/facilities.json?limit=-1',false);
-  testCaching('api.digitransit.fi','/out/92.62.36.215/RTIX/trip-updates',false);
-  testCaching('api.digitransit.fi','/out/tyokalu.navici.com/joukkoliikenne/manual-gtfsrt/api/gtfsrt/alerts',false);
+  testCaching('api.opentransport.ro','/out/helsinki-fi.smoove.pro/api-public/stations',false);
+  testCaching('api.opentransport.ro','/out/data.foli.fi/citybike/smoove',false);
+  testCaching('api.opentransport.ro','/out/p.hsl.fi/api/v1/facilities.json?limit=-1',false);
+  testCaching('api.opentransport.ro','/out/92.62.36.215/RTIX/trip-updates',false);
+  testCaching('api.opentransport.ro','/out/tyokalu.navici.com/joukkoliikenne/manual-gtfsrt/api/gtfsrt/alerts',false);
 });

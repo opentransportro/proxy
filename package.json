@@ -1,20 +1,20 @@
 {
   "name": "test-suite",
   "version": "1.0.0",
-  "description": "Digitransit proxy test suite",
+  "description": "Opentransport proxy test suite",
   "scripts": {
     "test": "./test.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HSLdevcom/digitransit-proxy.git"
+    "url": "git+https://github.com/opentransportro/proxy.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HSLdevcom/digitransit-proxy/issues"
+    "url": "https://github.com/opentransportro/proxy/issues"
   },
-  "homepage": "https://github.com/HSLdevcom/digitransit-proxy#readme",
+  "homepage": "https://github.com/opentransportro/proxy#readme",
   "engines": {
     "node": ">=5.0",
     "npm": ">=3.0"

@@ -1,7 +1,7 @@
 #!/bin/bash
 set +e
 #set -x
-docker build -t hsldevcom/digitransit-proxy:integrationtest .
+docker build -t opentransport/proxy:integrationtest .
 
 PROXIED_HOSTS=`grep proxy_pass *.conf|cut -d'/' -f3|cut -d':' -f1|grep -v "\."|sort|uniq`
 
@@ -23,7 +23,7 @@ CONTAINER_ID=`docker run -d -p 9000:8080 $ADDHOSTS -e VILKKU_BASIC_AUTH="\"test\
   -e MATKAHUOLTO_LAPPI_BASIC_AUTH="\"test\"" -e MATKAHUOLTO_POHJANMAA_BASIC_AUTH="\"test\"" \
   -e MATKAHUOLTO_SATAKUNTA_BASIC_AUTH="\"test\"" -e MATKAHUOLTO_VAKKA_BASIC_AUTH="\"test\"" \
   -e MATKAHUOLTO_VANTAA_BASIC_AUTH="\"test\"" -e MATKAHUOLTO_VARSINAIS_BASIC_AUTH="\"test\"" \
-  hsldevcom/digitransit-proxy:integrationtest`
+  opentransport/proxy:integrationtest`
 
 curl -v http://127.0.0.1:9000
 

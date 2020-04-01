@@ -6,11 +6,11 @@
 
 set -o errexit -o nounset -o xtrace
 
-ORG=${ORG:-hsldevcom}
+ORG=${ORG:-opentransport}
 DOCKER_TAG=${TRAVIS_COMMIT:-latest}
-DOCKER_IMAGE=$ORG/digitransit-proxy:$DOCKER_TAG
-LATEST_IMAGE=$ORG/digitransit-proxy:latest
-PROD_IMAGE=$ORG/digitransit-proxy:prod
+DOCKER_IMAGE=$ORG/proxy:$DOCKER_TAG
+LATEST_IMAGE=$ORG/proxy:latest
+PROD_IMAGE=$ORG/proxy:prod
 
 
 if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
@@ -30,8 +30,8 @@ if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
       docker tag ${DOCKER_IMAGE} ${LATEST_IMAGE}
       docker push ${LATEST_IMAGE}
     else
-      docker tag ${DOCKER_IMAGE} $ORG/digitransit-proxy:$TRAVIS_BRANCH
-      docker push $ORG/digitransit-proxy:$TRAVIS_BRANCH
+      docker tag ${DOCKER_IMAGE} $ORG/proxy:$TRAVIS_BRANCH
+      docker push $ORG/proxy:$TRAVIS_BRANCH
     fi
   fi
 else
